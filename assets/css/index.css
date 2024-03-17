@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+}
+
+.main {
+    width: 36rem;
+    height: 7rem;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: .5rem .5rem 1.5rem rgba(0, 0, 0, 0.15), -.5rem -.5rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+
+.icon_list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_list .icon_content {
+    margin: 0 1rem;
+    position: relative;
+}
+
+.icon_list .icon_content .tooltip {
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: .6rem 1rem;
+    border-radius: .5rem;
+    font-size: 1.4rem;
+    transition: all .3s ease;
+    visibility: hidden;
+    opacity: 0;
+    text-transform: capitalize;
+}
+
+.icon_list .icon_content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -5rem;
+}
+
+.icon_list .icon_content span {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    transition: all .3s ease-in-out;
+}
+
+.icon_list .icon_content span:hover {
+    box-shadow: .3rem .2rem 4.5rem 0 rgb(0 0 0 /12%);
+}
+
+.icon_list .icon_content span a {
+    position: relative;
+    z-index: 1;
+    font-size: 1.8rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    color: #4d4d4d;
+}
+
+.icon_list .icon_content span a svg {
+    fill: #4d4d4d;
+    width: 70%;
+    height: 70%;
+}
+
+.icon_list .icon_content span:hover a svg {
+    fill: #fff;
+}
+
+.icon_list .icon_content span .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: #000;
+    transition: all .3s ease-in;
+}
+
+.icon_list .icon_content span:hover .filled {
+    height: 100%;
+}
+
+.icon_list .icon_content span[data-social="facebook"] .filled, .icon_list .icon_content span[data-social="facebook"] ~ .tooltip {
+    background: #006ce8;
+}
+
+.icon_list .icon_content span[data-social="whatsapp"] .filled, .icon_list .icon_content span[data-social="whatsapp"] ~ .tooltip {
+    background: #1db954;
+}
+
+.icon_list .icon_content span[data-social="pinterest"] .filled, .icon_list .icon_content span[data-social="pinterest"] ~ .tooltip {
+    background: #bd081c;
+}
+
+.icon_list .icon_content span[data-social="github"] .filled, .icon_list .icon_content span[data-social="github"] ~ .tooltip {
+    background: #000;
+}
+
+.icon_list .icon_content span[data-social="instagram"] .filled, .icon_list .icon_content span[data-social="instagram"] ~ .tooltip {
+    background: linear-gradient(#f9ce34, #ee2a7b, #6228d7);
+}
