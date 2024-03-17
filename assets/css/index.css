@@ -1,132 +1,92 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: none;
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-
-html {
-    font-size: 10px;
-}
-
 body {
-    display: grid;
-    height: 100vh;
-    place-items: center;
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #5372F0;
 }
-
-.main {
-    width: 36rem;
-    height: 7rem;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1rem;
-    box-shadow: .5rem .5rem 1.5rem rgba(0, 0, 0, 0.15), -.5rem -.5rem 1.5rem rgba(0, 0, 0, 0.15);
+.wrapper {
+  padding: 35px;
+  position: relative;
+  overflow-x: hidden;
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 13px;
 }
-
-.icon_list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.wrapper .icon {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 120px;
+  display: flex;
+  align-items: center;
 }
-
-.icon_list .icon_content {
-    margin: 0 1rem;
-    position: relative;
+.icon:first-child {
+  left: 0;
+  display: none;
+  background: linear-gradient(90deg, #fff 70%, transparent); 
 }
-
-.icon_list .icon_content .tooltip {
-    position: absolute;
-    top: -3rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    padding: .6rem 1rem;
-    border-radius: .5rem;
-    font-size: 1.4rem;
-    transition: all .3s ease;
-    visibility: hidden;
-    opacity: 0;
-    text-transform: capitalize;
+.icon:last-child {
+  right: 0;
+  justify-content: flex-end;
+  background: linear-gradient(-90deg, #fff 70%, transparent);
 }
-
-.icon_list .icon_content:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-    top: -5rem;
+.icon svg {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 55px;
+  border-radius: 50%;
 }
-
-.icon_list .icon_content span {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    transition: all .3s ease-in-out;
+.icon svg:hover {
+  background: #efedfb;
 }
-
-.icon_list .icon_content span:hover {
-    box-shadow: .3rem .2rem 4.5rem 0 rgb(0 0 0 /12%);
+.icon:first-child svg {
+  margin-left: 15px;
+} 
+.icon:last-child svg {
+  margin-right: 15px;
+} 
+.wrapper .tabs-box {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
-
-.icon_list .icon_content span a {
-    position: relative;
-    z-index: 1;
-    font-size: 1.8rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    color: #4d4d4d;
+.tabs-box.dragging {
+  scroll-behavior: auto;
+  cursor: grab;
 }
-
-.icon_list .icon_content span a svg {
-    fill: #4d4d4d;
-    width: 70%;
-    height: 70%;
+.tabs-box .tab {
+  cursor: pointer;
+  font-size: 1.18rem;
+  white-space: nowrap;
+  background: #f5f4fd;
+  padding: 13px 20px;
+  border-radius: 30px;
+  border: 1px solid #d8d5f2;
 }
-
-.icon_list .icon_content span:hover a svg {
-    fill: #fff;
+.tabs-box .tab:hover{
+  background: #efedfb;
 }
-
-.icon_list .icon_content span .filled {
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background: #000;
-    transition: all .3s ease-in;
+.tabs-box.dragging .tab {
+  user-select: none;
+  pointer-events: none;
 }
-
-.icon_list .icon_content span:hover .filled {
-    height: 100%;
-}
-
-.icon_list .icon_content span[data-social="facebook"] .filled, .icon_list .icon_content span[data-social="facebook"] ~ .tooltip {
-    background: #006ce8;
-}
-
-.icon_list .icon_content span[data-social="whatsapp"] .filled, .icon_list .icon_content span[data-social="whatsapp"] ~ .tooltip {
-    background: #1db954;
-}
-
-.icon_list .icon_content span[data-social="pinterest"] .filled, .icon_list .icon_content span[data-social="pinterest"] ~ .tooltip {
-    background: #bd081c;
-}
-
-.icon_list .icon_content span[data-social="github"] .filled, .icon_list .icon_content span[data-social="github"] ~ .tooltip {
-    background: #000;
-}
-
-.icon_list .icon_content span[data-social="instagram"] .filled, .icon_list .icon_content span[data-social="instagram"] ~ .tooltip {
-    background: linear-gradient(#f9ce34, #ee2a7b, #6228d7);
+.tabs-box .tab.active{
+  color: #fff;
+  background: #5372F0;
+  border-color: transparent;
 }
